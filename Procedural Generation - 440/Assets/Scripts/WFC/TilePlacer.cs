@@ -5,7 +5,8 @@ using UnityEngine.Tilemaps;
 
 public class TilePlacer : MonoBehaviour
 {
-    [SerializeField] private Tilemap mainTilemap;
+    [SerializeField] private TileManager tileManager;
+    //[SerializeField] private Tilemap mainTilemap;
     [SerializeField] private Tile selectedTile;
     private Camera _camera;
 
@@ -25,8 +26,9 @@ public class TilePlacer : MonoBehaviour
 
     private void PlaceTile(Vector2 worldPos)
     {
-        Vector3Int tileCoords = mainTilemap.WorldToCell(worldPos);
+        Vector3Int tileCoords = tileManager.GetTilemap().WorldToCell(worldPos);
         
-        mainTilemap.SetTile(tileCoords, selectedTile);
+        tileManager.GetTilemap().SetTile(tileCoords, selectedTile);
+        tileManager.AddTile(tileCoords);
     }
 }
