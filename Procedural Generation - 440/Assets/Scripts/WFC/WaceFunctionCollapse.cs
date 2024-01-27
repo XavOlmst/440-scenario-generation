@@ -7,20 +7,20 @@ using Random = UnityEngine.Random;
 
 public class WaceFunctionCollapse : MonoBehaviour
 {
-    [SerializeField] private Vector2Int gridSize = new Vector2Int(10, 10);
+    [SerializeField] private int gridRadius = 10;
     [SerializeField] private TileManager tileManager;
     [SerializeField] private List<TileNeighbors> allTiles;
 
-    public static Vector3Int[] OddDirections =
-    {
-        new Vector3Int(0, 1), new Vector3Int(0, -1), new Vector3Int(1, 0), //top right, bottom right, right
-        new Vector3Int(-1, 0), new Vector3Int(-1, 1), new Vector3Int(-1, -1) //left, top left, bottom left
-    };
-
     public static Vector3Int[] EvenDirections =
     {
-        new Vector3Int(0, 1), new Vector3Int(0, -1), new Vector3Int(1, 0), //top left, bottom left, right
-        new Vector3Int(-1, 0), new Vector3Int(1, 1), new Vector3Int(1, -1) //left, top right, bottom right
+        new Vector3Int(0, 1), new Vector3Int(1, 0), new Vector3Int(0, -1), //top right, right, bottom right
+        new Vector3Int(-1, -1), new Vector3Int(-1, 0), new Vector3Int(-1, 1) //bottom left, left, top left, 
+    };
+
+    public static Vector3Int[] OddDirections =
+    {
+        new Vector3Int(0, 1), new Vector3Int(-1, 0), new Vector3Int(0, -1), //top left, left, bottom left
+        new Vector3Int(1, -1), new Vector3Int(1, 0), new Vector3Int(1, 1),  //bottom right, right, top right
     };
 
     private void Update()
@@ -29,12 +29,15 @@ public class WaceFunctionCollapse : MonoBehaviour
         {
             GenerateMap();
         }
+
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            tileManager.GetTilemap().ClearAllTiles();
+        }
     }
 
     public void GenerateMap()
     {
-        tileManager.GetTilemap().ClearAllTiles();
-        
         Vector3Int startCoords = Vector3Int.zero;
         List<Vector3Int> frontier = new();
         List<Vector3Int> explored = new();
@@ -42,16 +45,22 @@ public class WaceFunctionCollapse : MonoBehaviour
         if (tileManager.GetPlacedTiles().Count > 0)
         {
             startCoords = tileManager.GetPlacedTiles()[0];
-
+            var tempTile = tileManager.GetTilemap().GetTile(startCoords);
+            tileManager.GetTilemap().ClearAllTiles();
+            tileManager.GetTilemap().SetTile(startCoords, tempTile);
         }
-
+        else
+        {
+            tileManager.GetTilemap().ClearAllTiles();
+            tileManager.GetTilemap().SetTile(startCoords, allTiles[Random.Range(0, allTiles.Count)]);
+        }
+        
         Camera camera = Camera.main;
 
         if (!camera)
             return;
         
         frontier.Add(startCoords);
-        Vector3 screenPos = camera.WorldToScreenPoint(tileManager.GetTilemap().CellToWorld(frontier[0]));
         
         while (frontier.Count > 0)
         {
@@ -59,16 +68,24 @@ public class WaceFunctionCollapse : MonoBehaviour
             explored.Add(frontier[0]);
             frontier.Remove(frontier[0]);
             
-            if (currentCoords.y % 2 == 1)
+            if (Mathf.Abs(currentCoords.y) % 2 == 1)
             {
                 foreach (var dir in OddDirections)
                 {
                     Vector3Int coords = currentCoords + dir;
-                    SetTileForCoords(coords);
                     
-                    if (!explored.Contains(coords) && Mathf.Abs(coords.x) < gridSize.x / 2 &&
-                        Mathf.Abs(coords.y) < gridSize.y / 2)
+                    if (!explored.Contains(coords) && Vector3Int.Distance(coords, startCoords) < gridRadius)
                     {
+                        Tile placeTile = GetTileForCoords(coords);
+
+                        if (!placeTile)
+                        {
+                            placeTile = allTiles[Random.Range(0, allTiles.Count)];
+                            Debug.LogWarning($"No possible tile for: {coords}");
+                        }
+                        
+                        tileManager.GetTilemap().SetTile(coords, placeTile);
+                        
                         frontier.Add(coords);
                         explored.Add(coords);
                     }
@@ -79,11 +96,19 @@ public class WaceFunctionCollapse : MonoBehaviour
                 foreach (var dir in EvenDirections)
                 {
                     Vector3Int coords = currentCoords + dir;
-                    SetTileForCoords(coords);
                     
-                    if (!explored.Contains(coords) && Mathf.Abs(coords.x) < gridSize.x / 2 &&
-                        Mathf.Abs(coords.y) < gridSize.y / 2)
+                    if (!explored.Contains(coords)  && Vector3Int.Distance(coords, startCoords) < gridRadius)
                     {
+                        Tile placeTile = GetTileForCoords(coords);
+
+                        if (!placeTile)
+                        {
+                            placeTile = allTiles[Random.Range(0, allTiles.Count)];
+                            Debug.LogWarning($"No possible tile for: {coords}");
+                        }
+                        
+                        tileManager.GetTilemap().SetTile(coords, placeTile);
+                        
                         frontier.Add(coords);
                         explored.Add(coords);
                     }
@@ -92,23 +117,20 @@ public class WaceFunctionCollapse : MonoBehaviour
         }
     }
     
-    private Tile SetTileForCoords(Vector3Int tileCoords)
+    private Tile GetTileForCoords(Vector3Int tileCoords)
     {
         List<TileNeighbors> possibleTiles = allTiles;
-
-        if (tileCoords.y % 2 == 1) //is odd
+        List<TileNeighbors> neighborTiles = new();
+         
+        if (Mathf.Abs(tileCoords.y) % 2 == 1)
         {
             foreach (var dir in OddDirections)
             {
                 TileNeighbors tile = CheckTile(tileCoords + dir);
                 if (tile)
                 {
+                    neighborTiles.Add(tile);
                     var tempList = GetSimilarItems(possibleTiles, tile.PossibleNeighbors);
-
-                    if (tempList.Count == 0) //fail safe
-                    {
-                        tempList.AddRange(allTiles);
-                    }
 
                     possibleTiles = tempList;
                 }
@@ -121,21 +143,21 @@ public class WaceFunctionCollapse : MonoBehaviour
                 TileNeighbors tile = CheckTile(tileCoords + dir);
                 if (tile)
                 {
+                    neighborTiles.Add(tile);
                     var tempList = GetSimilarItems(possibleTiles, tile.PossibleNeighbors);
-
-                    if (tempList.Count == 0) //fail safe
-                    {
-                        tempList.AddRange(allTiles);
-                    }
 
                     possibleTiles = tempList;
                 }
             }
         }
 
+        Debug.Log($"Neighbor count for {tileCoords} is {neighborTiles.Count}");
+        
+        if (possibleTiles.Count == 0)
+            return null;
+        
         Tile returnTile = possibleTiles[Random.Range(0, possibleTiles.Count)];
         
-        tileManager.GetTilemap().SetTile(tileCoords, returnTile);
         return returnTile;
     }
 

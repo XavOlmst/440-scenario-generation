@@ -37,3 +37,4 @@ MonoBehaviour:
   PossibleNeighbors:
   - {fileID: 11400000}
   - {fileID: 11400000, guid: 88ce6bd996b7b864fb550ff2544c023f, type: 2}
+  - {fileID: 11400000, guid: 0cbaba1fb9bb4e44b90daa70ecd15a2c, type: 2}

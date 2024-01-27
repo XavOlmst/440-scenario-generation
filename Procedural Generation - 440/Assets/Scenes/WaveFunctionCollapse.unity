@@ -181,12 +181,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b0539191107c847aa6f8e673c64e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridSize: {x: 2, y: 2}
+  gridRadius: 5
   tileManager: {fileID: 916985802}
   allTiles:
   - {fileID: 11400000, guid: 3786617d113451b4090e07897ac4cc6a, type: 2}
   - {fileID: 11400000, guid: 88ce6bd996b7b864fb550ff2544c023f, type: 2}
   - {fileID: 11400000, guid: 6db08ba9b4ae1574aa6f3ac33e2b44e0, type: 2}
+  - {fileID: 11400000, guid: 7368fe0aa96b67e4b8074e63841bf3ab, type: 2}
+  - {fileID: 11400000, guid: 0cbaba1fb9bb4e44b90daa70ecd15a2c, type: 2}
 --- !u!1 &1124271430
 GameObject:
   m_ObjectHideFlags: 0
@@ -218,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tileManager: {fileID: 916985802}
-  selectedTile: {fileID: 11400000, guid: 88ce6bd996b7b864fb550ff2544c023f, type: 2}
+  selectedTile: {fileID: 11400000, guid: 0cbaba1fb9bb4e44b90daa70ecd15a2c, type: 2}
 --- !u!156049354 &1124271432
 Grid:
   m_ObjectHideFlags: 0
@@ -284,7 +286,11 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
   - m_RefCount: 0
@@ -298,30 +304,30 @@ Tilemap:
     m_Data:
       e00: 0
       e01: 0
-      e02: 2.3622353e+10
-      e03: 2.3622353e+10
+      e02: -2.3622353e+10
+      e03: -2.3622353e+10
       e10: 0
       e11: 0
-      e12: 5.52e-43
-      e13: 5.52e-43
-      e20: 4.1274004e+21
-      e21: -26384576
-      e22: -7.8327234e-29
-      e23: -2.5441053e-29
-      e30: 4.5904e-41
-      e31: 5.55e-43
-      e32: 5.52e-43
-      e33: 5.55e-43
+      e12: 7.61e-43
+      e13: 7.61e-43
+      e20: 6.249009e-24
+      e21: 4.1872142e+37
+      e22: 3.3207352e-19
+      e23: 2.5499312e-29
+      e30: 4.5905e-41
+      e31: 7.65e-43
+      e32: 7.62e-43
+      e33: 7.65e-43
   m_TileColorArray:
   - m_RefCount: 0
     m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
   - m_RefCount: 0
-    m_Data: {r: 3.517e-41, g: 3.517e-41, b: 3.517e-41, a: 3.517e-41}
+    m_Data: {r: NaN, g: NaN, b: NaN, a: NaN}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -4, y: -1, z: 0}
-  m_Size: {x: 10, y: 9, z: 1}
+  m_Origin: {x: -5, y: -1, z: 0}
+  m_Size: {x: 11, y: 9, z: 1}
   m_TileAnchor: {x: 0, y: 0, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:

@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edfdc320d94d7a24f920371d8c3a5fd4, type: 3}
-  m_Name: ForestTileWFC
+  m_Name: IceTile
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 9254646338189c44a85d5992a6596df3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8a7a86a77804bc745b6880079fcb6b17, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -35,7 +35,6 @@ MonoBehaviour:
   m_Flags: 1
   m_ColliderType: 1
   PossibleNeighbors:
-  - {fileID: 11400000, guid: 3786617d113451b4090e07897ac4cc6a, type: 2}
   - {fileID: 11400000}
   - {fileID: 11400000, guid: 6db08ba9b4ae1574aa6f3ac33e2b44e0, type: 2}
   - {fileID: 11400000, guid: 0cbaba1fb9bb4e44b90daa70ecd15a2c, type: 2}
