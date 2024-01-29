@@ -7,5 +7,5 @@ using UnityEngine.Tilemaps;
 [CreateAssetMenu(menuName = "Tile/WFC Tile")]
 public class TileNeighbors : Tile
 {
-    public List<TileNeighbors> PossibleNeighbors;
+    public List<TileNeighbors> AlwaysPossibleNeighbors;
 }

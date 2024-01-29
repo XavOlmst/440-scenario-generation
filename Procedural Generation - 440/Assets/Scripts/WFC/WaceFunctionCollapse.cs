@@ -33,9 +33,11 @@ public class WaceFunctionCollapse : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.C))
         {
             tileManager.GetTilemap().ClearAllTiles();
+            tileManager.ClearTiles();
         }
     }
 
+    //should probably break this up more
     public IEnumerator GenerateMap()
     {
         Vector3Int startCoords = Vector3Int.zero;
@@ -73,7 +75,6 @@ public class WaceFunctionCollapse : MonoBehaviour
                 foreach (var dir in OddDirections)
                 {
                     Vector3Int coords = currentCoords + dir;
-                    
                     if (!explored.Contains(coords) && Vector3Int.Distance(coords, startCoords) < gridRadius)
                     {
                         CreateTileAtLocation(coords);
@@ -88,11 +89,10 @@ public class WaceFunctionCollapse : MonoBehaviour
                 foreach (var dir in EvenDirections)
                 {
                     Vector3Int coords = currentCoords + dir;
-                    
                     if (!explored.Contains(coords)  && Vector3Int.Distance(coords, startCoords) < gridRadius)
                     {
                         CreateTileAtLocation(coords);
-                        
+
                         frontier.Add(coords);
                         explored.Add(coords);
                     }
@@ -125,11 +125,11 @@ public class WaceFunctionCollapse : MonoBehaviour
         {
             foreach (var dir in OddDirections)
             {
-                TileNeighbors tile = CheckTile(tileCoords + dir);
+                TileNeighbors tile = GetNeighborTile(tileCoords + dir);
                 if (tile)
                 {
                     neighborTiles.Add(tile);
-                    var tempList = GetSimilarItems(possibleTiles, tile.PossibleNeighbors);
+                    var tempList = FindSimilarItems(possibleTiles, tile.AlwaysPossibleNeighbors);
 
                     possibleTiles = tempList;
                 }
@@ -139,18 +139,16 @@ public class WaceFunctionCollapse : MonoBehaviour
         {
             foreach (var dir in EvenDirections)
             {
-                TileNeighbors tile = CheckTile(tileCoords + dir);
+                TileNeighbors tile = GetNeighborTile(tileCoords + dir);
                 if (tile)
                 {
                     neighborTiles.Add(tile);
-                    var tempList = GetSimilarItems(possibleTiles, tile.PossibleNeighbors);
+                    var tempList = FindSimilarItems(possibleTiles, tile.AlwaysPossibleNeighbors);
 
                     possibleTiles = tempList;
                 }
             }
         }
-
-        Debug.Log($"Neighbor count for {tileCoords} is {neighborTiles.Count}");
         
         if (possibleTiles.Count == 0)
             return null;
@@ -160,14 +158,14 @@ public class WaceFunctionCollapse : MonoBehaviour
         return returnTile;
     }
 
-    private TileNeighbors CheckTile(Vector3Int tileCoords)
+    private TileNeighbors GetNeighborTile(Vector3Int tileCoords)
     {
         return tileManager.GetTilemap().GetTile(tileCoords) as TileNeighbors;
     }
 
-    private List<TileNeighbors> GetSimilarItems(List<TileNeighbors> listA, List<TileNeighbors> listB)
+    private List<T> FindSimilarItems<T>(List<T> listA, List<T> listB)
     {
-        List<TileNeighbors> tempList = new();
+        List<T> tempList = new();
 
         foreach (var item in listA)
         {

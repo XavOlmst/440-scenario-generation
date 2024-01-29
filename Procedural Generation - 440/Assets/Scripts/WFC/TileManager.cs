@@ -11,4 +11,5 @@ public class TileManager : MonoBehaviour
     public void AddTile(Vector3Int coords) => placedTileCoords.Add(coords);
     public Tilemap GetTilemap() => mainTilemap;
     public List<Vector3Int> GetPlacedTiles() => placedTileCoords;
+    public void ClearTiles() => placedTileCoords.Clear();
 }

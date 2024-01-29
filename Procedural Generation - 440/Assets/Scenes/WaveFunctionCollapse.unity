@@ -181,7 +181,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b0539191107c847aa6f8e673c64e44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gridRadius: 5
+  gridRadius: 20
   tileManager: {fileID: 916985802}
   allTiles:
   - {fileID: 11400000, guid: 3786617d113451b4090e07897ac4cc6a, type: 2}
@@ -190,6 +190,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 7368fe0aa96b67e4b8074e63841bf3ab, type: 2}
   - {fileID: 11400000, guid: 0cbaba1fb9bb4e44b90daa70ecd15a2c, type: 2}
   - {fileID: 11400000, guid: b4361808e12618446b17cfcf84b8fb51, type: 2}
+  - {fileID: 11400000, guid: 13bb390a495fea04581edad307bf1fe7, type: 2}
 --- !u!1 &1124271430
 GameObject:
   m_ObjectHideFlags: 0

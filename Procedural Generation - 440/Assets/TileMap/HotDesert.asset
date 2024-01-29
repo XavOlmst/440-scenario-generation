@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edfdc320d94d7a24f920371d8c3a5fd4, type: 3}
-  m_Name: SnowTileWFC
+  m_Name: HotDesert
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 1374694342, guid: 91896f7b1a6da9a48a653cfa98afe36d, type: 3}
+  m_Sprite: {fileID: -2054019972, guid: 91896f7b1a6da9a48a653cfa98afe36d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
@@ -35,7 +35,5 @@ MonoBehaviour:
   m_Flags: 1
   m_ColliderType: 1
   AlwaysPossibleNeighbors:
-  - {fileID: 11400000, guid: 7368fe0aa96b67e4b8074e63841bf3ab, type: 2}
-  - {fileID: 11400000, guid: b4361808e12618446b17cfcf84b8fb51, type: 2}
+  - {fileID: 11400000, guid: 3786617d113451b4090e07897ac4cc6a, type: 2}
   - {fileID: 11400000}
-  - {fileID: 11400000, guid: 0cbaba1fb9bb4e44b90daa70ecd15a2c, type: 2}

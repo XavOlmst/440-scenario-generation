@@ -34,7 +34,8 @@ MonoBehaviour:
   m_InstancedGameObject: {fileID: 0}
   m_Flags: 1
   m_ColliderType: 1
-  PossibleNeighbors:
+  AlwaysPossibleNeighbors:
   - {fileID: 11400000}
   - {fileID: 11400000, guid: 88ce6bd996b7b864fb550ff2544c023f, type: 2}
+  - {fileID: 11400000, guid: 13bb390a495fea04581edad307bf1fe7, type: 2}
   - {fileID: 11400000, guid: 0cbaba1fb9bb4e44b90daa70ecd15a2c, type: 2}
