@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: edfdc320d94d7a24f920371d8c3a5fd4, type: 3}
-  m_Name: IceTile
+  m_Name: SnowyForest
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -1992396431, guid: 91896f7b1a6da9a48a653cfa98afe36d, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 1784375693, guid: 91896f7b1a6da9a48a653cfa98afe36d, type: 3}
+  m_Color: {r: 0.75, g: 0.75, b: 0.75, a: 1}
   m_Transform:
     e00: 1
     e01: 0
@@ -35,7 +35,8 @@ MonoBehaviour:
   m_Flags: 1
   m_ColliderType: 1
   PossibleNeighbors:
+  - {fileID: 11400000, guid: 0cbaba1fb9bb4e44b90daa70ecd15a2c, type: 2}
   - {fileID: 11400000}
   - {fileID: 11400000, guid: 6db08ba9b4ae1574aa6f3ac33e2b44e0, type: 2}
-  - {fileID: 11400000, guid: 0cbaba1fb9bb4e44b90daa70ecd15a2c, type: 2}
-  - {fileID: 11400000, guid: b4361808e12618446b17cfcf84b8fb51, type: 2}
+  - {fileID: 11400000, guid: 7368fe0aa96b67e4b8074e63841bf3ab, type: 2}
+  - {fileID: 11400000, guid: 88ce6bd996b7b864fb550ff2544c023f, type: 2}

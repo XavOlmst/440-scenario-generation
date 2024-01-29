@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edfdc320d94d7a24f920371d8c3a5fd4, type: 3}
   m_Name: DesertTileWFC
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 9cfe1a4e9d02ebf41a0b4160ccb6a866, type: 3}
+  m_Sprite: {fileID: 533401249, guid: 91896f7b1a6da9a48a653cfa98afe36d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

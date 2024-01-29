@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a4443b080e834114dae257965daf59b7
+guid: 91896f7b1a6da9a48a653cfa98afe36d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -110,12 +110,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HexRiverTiles_0
+      name: hex-biome-spritesheet_0
       rect:
         serializedVersion: 2
-        x: 30
-        y: 32
-        width: 30
+        x: 0
+        y: 0
+        width: 28
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -124,19 +124,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 23164c9c9015f2f4982f34747bce19e9
-      internalID: 938596705
+      spriteID: 88100791e9b949a48bb8da9bbd97e1a1
+      internalID: 1154801749
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HexRiverTiles_1
+      name: hex-biome-spritesheet_1
       rect:
         serializedVersion: 2
-        x: 120
-        y: 32
-        width: 30
+        x: 28
+        y: 0
+        width: 28
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -145,19 +145,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 15e350911ac132941a79d9ebb556f4e0
-      internalID: -1450081774
+      spriteID: 7bf4d19af060f984e89cc8983426d82f
+      internalID: -1992396431
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HexRiverTiles_2
+      name: hex-biome-spritesheet_2
       rect:
         serializedVersion: 2
-        x: 210
-        y: 32
-        width: 30
+        x: 56
+        y: 0
+        width: 28
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -166,19 +166,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 89b010a4138931a488414b33268a9ac0
-      internalID: 149762619
+      spriteID: 678c317e5276ff54d8ccbe48c2457d21
+      internalID: 1374694342
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HexRiverTiles_3
+      name: hex-biome-spritesheet_3
       rect:
         serializedVersion: 2
-        x: 300
-        y: 32
-        width: 30
+        x: 84
+        y: 0
+        width: 28
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -187,19 +187,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5862420ce99a4a745b2492a5373e12d7
-      internalID: -1752447651
+      spriteID: 11a3618abaa0dcb418d99ae5ef08b215
+      internalID: 1784375693
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HexRiverTiles_4
+      name: hex-biome-spritesheet_4
       rect:
         serializedVersion: 2
-        x: 390
-        y: 32
-        width: 30
+        x: 112
+        y: 0
+        width: 28
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -208,19 +208,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d54707c7a88e00e42accf85fd06f434d
-      internalID: -787296964
+      spriteID: ede95c9a1885c43459d931a7e5ca2f50
+      internalID: -437222168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HexRiverTiles_5
+      name: hex-biome-spritesheet_5
       rect:
         serializedVersion: 2
-        x: 480
-        y: 32
-        width: 30
+        x: 140
+        y: 0
+        width: 28
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -229,19 +229,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 140073d6784b6044e8182c466d5b676b
-      internalID: 924264714
+      spriteID: 870129f4de365cb458d30c0254233804
+      internalID: 533401249
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HexRiverTiles_6
+      name: hex-biome-spritesheet_6
       rect:
         serializedVersion: 2
-        x: 570
-        y: 32
-        width: 30
+        x: 168
+        y: 0
+        width: 28
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -250,19 +250,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ce45b71aed100064c91a49ee445f16b2
-      internalID: 1814073002
+      spriteID: 374bdca3d131cc34ab76003b8d3f2096
+      internalID: -1769091648
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HexRiverTiles_7
+      name: hex-biome-spritesheet_7
       rect:
         serializedVersion: 2
-        x: 660
-        y: 32
-        width: 30
+        x: 196
+        y: 0
+        width: 28
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -271,19 +271,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8815bb583eed7ed4685bf7a0ff8db2ad
-      internalID: -1450144886
+      spriteID: cb76845ab0d4c4042806a95b9fcfd026
+      internalID: -2054019972
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HexRiverTiles_8
+      name: hex-biome-spritesheet_8
       rect:
         serializedVersion: 2
-        x: 750
-        y: 32
-        width: 30
+        x: 224
+        y: 0
+        width: 28
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -292,8 +292,29 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d02bc40df741ca04abc2ae83af184651
-      internalID: 1288081774
+      spriteID: 8612790348898f04e820edd180693b49
+      internalID: -1396872286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: hex-biome-spritesheet_9
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 0
+        width: 28
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a246cd987b5e76244aa0a2217a994fa1
+      internalID: 415385622
       vertices: []
       indices: 
       edges: []
@@ -301,7 +322,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: deb91d038855873468f564042f13e8b0
+    spriteID: 6184ff7fff6f1524981b6b84773ffe86
     internalID: 0
     vertices: []
     indices: 
@@ -309,15 +330,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      HexRiverTiles_0: 938596705
-      HexRiverTiles_1: -1450081774
-      HexRiverTiles_2: 149762619
-      HexRiverTiles_3: -1752447651
-      HexRiverTiles_4: -787296964
-      HexRiverTiles_5: 924264714
-      HexRiverTiles_6: 1814073002
-      HexRiverTiles_7: -1450144886
-      HexRiverTiles_8: 1288081774
+      hex-biome-spritesheet_0: 1154801749
+      hex-biome-spritesheet_1: -1992396431
+      hex-biome-spritesheet_2: 1374694342
+      hex-biome-spritesheet_3: 1784375693
+      hex-biome-spritesheet_4: -437222168
+      hex-biome-spritesheet_5: 533401249
+      hex-biome-spritesheet_6: -1769091648
+      hex-biome-spritesheet_7: -2054019972
+      hex-biome-spritesheet_8: -1396872286
+      hex-biome-spritesheet_9: 415385622
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

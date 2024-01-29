@@ -27,7 +27,7 @@ public class WaceFunctionCollapse : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.G))
         {
-            GenerateMap();
+            StartCoroutine(GenerateMap());
         }
 
         if (Input.GetKeyDown(KeyCode.C))
@@ -36,7 +36,7 @@ public class WaceFunctionCollapse : MonoBehaviour
         }
     }
 
-    public void GenerateMap()
+    public IEnumerator GenerateMap()
     {
         Vector3Int startCoords = Vector3Int.zero;
         List<Vector3Int> frontier = new();
@@ -58,7 +58,7 @@ public class WaceFunctionCollapse : MonoBehaviour
         Camera camera = Camera.main;
 
         if (!camera)
-            return;
+            yield break;
         
         frontier.Add(startCoords);
         
@@ -76,15 +76,7 @@ public class WaceFunctionCollapse : MonoBehaviour
                     
                     if (!explored.Contains(coords) && Vector3Int.Distance(coords, startCoords) < gridRadius)
                     {
-                        Tile placeTile = GetTileForCoords(coords);
-
-                        if (!placeTile)
-                        {
-                            placeTile = allTiles[Random.Range(0, allTiles.Count)];
-                            Debug.LogWarning($"No possible tile for: {coords}");
-                        }
-                        
-                        tileManager.GetTilemap().SetTile(coords, placeTile);
+                        CreateTileAtLocation(coords);
                         
                         frontier.Add(coords);
                         explored.Add(coords);
@@ -99,22 +91,29 @@ public class WaceFunctionCollapse : MonoBehaviour
                     
                     if (!explored.Contains(coords)  && Vector3Int.Distance(coords, startCoords) < gridRadius)
                     {
-                        Tile placeTile = GetTileForCoords(coords);
-
-                        if (!placeTile)
-                        {
-                            placeTile = allTiles[Random.Range(0, allTiles.Count)];
-                            Debug.LogWarning($"No possible tile for: {coords}");
-                        }
-                        
-                        tileManager.GetTilemap().SetTile(coords, placeTile);
+                        CreateTileAtLocation(coords);
                         
                         frontier.Add(coords);
                         explored.Add(coords);
                     }
                 }
             }
+
+            yield return new WaitForEndOfFrame();
         }
+    }
+
+    private void CreateTileAtLocation(Vector3Int coords)
+    {
+        Tile placeTile = GetTileForCoords(coords);
+
+        if (!placeTile)
+        {
+            placeTile = allTiles[Random.Range(0, allTiles.Count)];
+            Debug.LogWarning($"No possible tile for: {coords}");
+        }
+                        
+        tileManager.GetTilemap().SetTile(coords, placeTile);
     }
     
     private Tile GetTileForCoords(Vector3Int tileCoords)
