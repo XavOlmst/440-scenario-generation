@@ -340,7 +340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19d9645a6f329d44e9189d9535345902, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meshSize: {x: 5, y: 5}
+  meshSize: {x: 30, y: 30}
   sideSteps: 100
   planeMesh: {fileID: 1280054399}
 --- !u!23 &1280054398
